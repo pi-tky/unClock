@@ -1,0 +1,111 @@
+﻿<Window
+    x:Class="unClock.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:unClock"
+    mc:Ignorable="d"
+    Title="unClock" Height="270" Width="200"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="13"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    MouseDown="Window_MouseDown"
+    WindowStyle="None"
+    ResizeMode="CanResize"
+    AllowsTransparency="True"
+    Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.GroupBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="{DynamicResource MaterialDesignPaper}">
+        <StackPanel>
+            <Grid Margin="4,4,0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0" Grid.Column="0" Orientation="Horizontal">
+                    <Button
+                        x:Name="BtnLock"
+                        Click="BtnLock_Click"
+                        IsTabStop="False"
+                        Height="24"
+                        Width="24"
+                        Margin="0"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
+                        ToolTip="Lock">
+                        <materialDesign:PackIcon
+                            Kind="Lock"
+                            Height="16"
+                            Width="16" />
+                    </Button>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="0,0,4,0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                    <Button
+                        x:Name="BtnMinimize"
+                        Click="BtnMinimize_Click"
+                        IsTabStop="False"
+                        Height="24" 
+                        Width="24"
+                        Margin="0,0,2,0"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        ToolTip="Minimize">
+                        <materialDesign:PackIcon
+                            Kind="WindowMinimize"
+                            Height="16"
+                            Width="16" />
+                    </Button>
+                    <Button
+                        x:Name="BtnClose"
+                        Click="BtnClose_Click"
+                        IsTabStop="False"
+                        Height="24"
+                        Width="24"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        ToolTip="Close">
+                        <materialDesign:PackIcon
+                            Kind="Close"
+                            Height="16"
+                            Width="16" />
+                    </Button>
+                 </StackPanel>
+            </Grid>
+            <GroupBox
+                Header="Tokyo"
+                Margin="16">
+                <TextBlock
+                    x:Name="TbTokyo"
+                    Text="00:00"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="Consolas"
+                           FontSize="36"/>
+            </GroupBox>
+            <GroupBox
+                Header="London"
+                Margin="16,0,16,16"
+                materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+                <TextBlock
+                    x:Name="TbLondon"
+                    Text="00:00"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="Consolas"
+                           FontSize="36"/>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
